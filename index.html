@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Psychic Game</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+ 
+
+
+</head>
+
+
+
+
+
+<body>
+
+
+<div class = "container">
+	<div class = "row">
+		<div class = "col-md-3">
+			<!-- 	empty div -->
+		</div>
+
+		<div class = "col-md-6">
+			<header><h1>The Psychic Game!</h1></header>
+			<p>Instructions: In this game, you will try to guess the letter (a-z) the computer has picked by pressing a letter on your keyboard.</p><br>
+			<p>Press any letter (a-z) to start guessing: <span id = "user-text"></span></p>
+			<div id = "game">
+				<ul class = "list-group">
+					<li class = "list-group-item">Computer Guess: <span id = "spanCompGuess"></span></li>
+					<li class = "list-group-item">Your Guess: <span id = "spanUserGuess"></span></li>
+					<li class = "list-group-item">Your Letters Guessed: <span id = "spanLettersGuessed"></span></li>
+					<li class = "list-group-item">Guesses Left: <span id = "spanGuessesLeft"></span></li>
+					<li class = "list-group-item">Wins: <span id = "spanWins"></span></li>
+					<li class = "list-group-item">Losses: <span id = "spanLosses"></span></li>
+
+
+				</ul>
+			</div>
+		</div>
+		<div class = "col-md-3">
+			<!-- 	empty div -->
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+
+</html>
