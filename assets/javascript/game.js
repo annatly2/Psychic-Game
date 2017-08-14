@@ -28,7 +28,7 @@ document.onkeyup = function(){
 	spanGuessesLeft.textContent = guessesLeft;
 
 
-	//for(i=0; guesses <=guessesLeft; i++){
+	for(i=0; i<guessesLeft; i++){
 
 	if(userGuess == compGuess){
 		spanWins.textContent = wins++;
@@ -59,7 +59,7 @@ document.onkeyup = function(){
 		}
 }
 
-
+}
 
 
 // //Computer select random letter
