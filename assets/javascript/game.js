@@ -1,13 +1,13 @@
+//Define variables
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] // list alphabet
 
 var userGuess;
 var compGuess;
 var wins = 0;
 var losses = 0;
-var guesses = 5;
+var guessesCount = 0;
 var guessesLeft = 5;
 var lettersGuessed =[];
-var letterToGuess = null;
 
 var spanCompGuess = document.getElementById("spanCompGuess");
 var spanUserGuess = document.getElementById("spanUserGuess");
@@ -25,23 +25,38 @@ document.onkeyup = function(){
 
 	spanCompGuess.textContent = compGuess;
 	spanUserGuess.textContent = userGuess;
+	spanGuessesLeft.textContent = guessesLeft;
 
 
+	//for(i=0; guesses <=guessesLeft; i++){
 
 	if(userGuess == compGuess){
 		spanWins.textContent = wins++;
-		spanGuessesLeft.textConent = guessesLeft-1;
+		lettersGuessed.push(userGuess);
+		spanLettersGuessed.textContent = lettersGuessed.join(", ");
+
 	} else if(userGuess !== compGuess){
 		spanLosses.textContent = losses++;
 		lettersGuessed.push(userGuess);
 		spanLettersGuessed.textContent = lettersGuessed.join(", ");
-		spanGuessesLeft.textConent = guessesLeft-1;
+
 	} else{
 		alert("This is an invalid selection. Please type a letter from a-z.");
 	}
+	guessesLeft--;
+	spanGuessesLeft.textContent = guessesLeft;
+	guessesCount++;
 
 	spanWins.textContent = wins;
-	
+	//make reset function
+	//}
+
+	console.log("Guess Count: " + guessesCount);
+	console.log("Guesses Left: " + guessesLeft);
+		if(guessesCount >=6){
+			alert("You ran out of guesses!");
+		//put reset function here
+		}
 }
 
 
