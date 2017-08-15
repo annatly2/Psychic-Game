@@ -58,14 +58,14 @@ document.onkeyup = function(event){
 	if (guessesLeft >=0){
 		if (userGuess == compGuess){
 			spanWins.textContent = wins++;
+			spanWins.textContent = wins;
 			reset();
 		}else if(userGuess!==compGuess){
 			updateGuessesLeft();
 		}
-		console.log("Losses " + losses);
 	}else if(guessesLeft<=0){
 		spanLosses.textContent = losses++;
-		console.log("Losses2: " +losses);
+		spanLosses.textContent = losses;
 		reset();
 	}
 }
