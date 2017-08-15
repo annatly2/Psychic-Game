@@ -16,57 +16,56 @@ var spanGuessesLeft = document.getElementById("spanGuessesLeft");
 var spanWins = document.getElementById("spanWins");
 var spanLosses = document.getElementById("spanLosses");
 
-// function reset()
-// {
-// 	wins
-// }
 
-document.onkeyup = function(){
-	var keyHit = event.key;
-	userGuess = keyHit;
+var updateLetterToGuess = function(){
 	var index = Math.floor(Math.random()*letters.length);
 	compGuess = letters[index];
-
 	spanCompGuess.textContent = compGuess;
+}
+var updateGuessesLeft = function(){
+	spanGuessesLeft.textContent = guessesLeft;
+}
+
+var updateGuessesSoFar = function(){
+		lettersGuessed.push(userGuess);
+		spanLettersGuessed.textContent = lettersGuessed.join(", ");
+}
+
+var reset= function(){
+	guessesCount = 0;
+	guessesLeft = 4;
+	lettersGuessed=[];
+
+	updateLetterToGuess();
+	updateGuessesLeft();
+	updateGuessesSoFar();
+}
+
+document.onkeyup = function(event){
+	guessesCount++;
+	guessesLeft--;
+
+	var keyHit = event.key;
+	userGuess = keyHit;
+
 	spanUserGuess.textContent = userGuess;
 	spanGuessesLeft.textContent = guessesLeft;
 
-	if(userGuess == compGuess){
-		spanWins.textContent = wins++;
-		lettersGuessed.push(userGuess);
-		spanLettersGuessed.textContent = lettersGuessed.join(", ");
+	updateLetterToGuess();
+	updateGuessesLeft();
+	updateGuessesSoFar();
 
-	} else if(userGuess !== compGuess){
-
-		lettersGuessed.push(userGuess);
-		spanLettersGuessed.textContent = lettersGuessed.join(", ");
-		guessesLeft--;
-		spanGuessesLeft.textContent = guessesLeft;
-		guessesCount++;
-
+	if (guessesLeft >=0){
+		if (userGuess == compGuess){
+			spanWins.textContent = wins++;
+			reset();
+		}else if(userGuess!==compGuess){
+			updateGuessesLeft();
+		}
+		console.log("Losses " + losses);
+	}else if(guessesLeft<=0){
+		spanLosses.textContent = losses++;
+		console.log("Losses2: " +losses);
+		reset();
 	}
-
-	else{
-		alert("This is an invalid selection. Please type a letter from a-z.");
-	}
-	// guessesLeft--;
-	// spanGuessesLeft.textContent = guessesLeft;
-	// guessesCount++;
-	//make reset function
-	//}
-
-	// console.log("Guess Count: " + guessesCount);
-	// console.log("Guesses Left: " + guessesLeft);
-
 }
-
-
-	// 	if (guessesLeft <= 0 && guessesCount >= 5){
-	// 	spanLosses.textContent = losses++;
-	// }
-		//reset function
-
-
-
-
-
