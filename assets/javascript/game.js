@@ -1,4 +1,3 @@
-//Define variables
 var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] // list alphabet
 
 var userGuess;
@@ -20,7 +19,11 @@ var spanLosses = document.getElementById("spanLosses");
 var updateLetterToGuess = function(){
 	var index = Math.floor(Math.random()*letters.length);
 	compGuess = letters[index];
+}
+
+var displayCompGuess = function(){
 	spanCompGuess.textContent = compGuess;
+	console.log(compGuess);
 }
 var updateGuessesLeft = function(){
 	spanGuessesLeft.textContent = guessesLeft;
@@ -41,6 +44,8 @@ var reset= function(){
 	updateGuessesSoFar();
 }
 
+updateLetterToGuess();
+
 document.onkeyup = function(event){
 	guessesCount++;
 	guessesLeft--;
@@ -51,14 +56,17 @@ document.onkeyup = function(event){
 	spanUserGuess.textContent = userGuess;
 	spanGuessesLeft.textContent = guessesLeft;
 
-	updateLetterToGuess();
+
 	updateGuessesLeft();
 	updateGuessesSoFar();
+	console.log(compGuess);
 
 	if (guessesLeft >=0){
-		if (userGuess == compGuess){
-			spanWins.textContent = wins++;
+		if (userGuess === compGuess){
+			wins++;
 			spanWins.textContent = wins;
+			console.log(wins);
+			displayCompGuess();
 			reset();
 		}else if(userGuess!==compGuess){
 			updateGuessesLeft();
