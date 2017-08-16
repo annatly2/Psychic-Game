@@ -23,7 +23,7 @@ var updateLetterToGuess = function(){
 
 var displayCompGuess = function(){
 	spanCompGuess.textContent = compGuess;
-	console.log(compGuess);
+	//console.log(compGuess);
 }
 var updateGuessesLeft = function(){
 	spanGuessesLeft.textContent = guessesLeft;
@@ -65,14 +65,13 @@ document.onkeyup = function(event){
 		if (userGuess === compGuess){
 			wins++;
 			spanWins.textContent = wins;
-			console.log(wins);
 			displayCompGuess();
 			reset();
 		}else if(userGuess!==compGuess){
 			updateGuessesLeft();
 		}
 	}else if(guessesLeft<=0){
-		spanLosses.textContent = losses++;
+		losses++;
 		spanLosses.textContent = losses;
 		reset();
 	}
