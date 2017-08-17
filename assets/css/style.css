@@ -11,9 +11,10 @@ h1{
 	font-family: "Sedgwick Ave", Times, serif;
 }
 
-.press{	
-	color: red;
+.press, span{	
+	color: #F2125C;
 }
+
 h3{
 	font-size: 25px;
 	text-align: center;
@@ -31,8 +32,4 @@ li{
 	font-size: 14px;
 	font-family: "Shadows Into Light Two";
 	font-weight: bold;
-}
-
-span{
-	color: red;
 }
